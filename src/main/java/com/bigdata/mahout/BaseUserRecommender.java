@@ -33,6 +33,7 @@ public class BaseUserRecommender {
         NearestNUserNeighborhood userNeighborhood = new NearestNUserNeighborhood(100, similarity, dataModel);
         //构建推荐器，协同过滤推荐有两种，分别是基于用户的和基于物品的，这里使用基于物品的协同过滤推荐
         Recommender recommender = new GenericUserBasedRecommender(dataModel, userNeighborhood, similarity);
+        //给用户ID等于5的用户推荐10部电影
         List<RecommendedItem> recommendedItemList = recommender.recommend(5, 10);
         for (RecommendedItem recommendedItem : recommendedItemList) {
             System.out.println(recommendedItem);
